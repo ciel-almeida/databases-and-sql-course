@@ -8,7 +8,7 @@ CREATE TABLE LIVROS(
     SEXO CHAR(1),
     PAGINAS INT(5),
     EDITORA VARCHAR(30),
-    VALOR_DO_LIVRO FLOAT(10,2),
+    VALOR FLOAT(10,2),
     UF CHAR(2),
     ANO INT(4)
 );
@@ -23,4 +23,22 @@ INSERT INTO LIVROS VALUES('Estacio Querido','Geraldo Francisco','M',310,'Insigni
 INSERT INTO LIVROS VALUES('Pra sempre amigas','Leda Silva','F',510,'Insignia',78,'ES',2011);
 INSERT INTO LIVROS VALUES('Copas Inesqueciveis','Marco Alcantara','M',200,'Larson',130,'RS',2018);
 INSERT INTO LIVROS VALUES('O poder da mente','Clara Mafra','F',120,'Continental',56,'SP',2017);
+
+-- 1. Trazer todos os dados.
+SELECT * FROM LIVROS;
+
+-- 2. Trazer o nome do livro e o nome da editora
+SELECT LIVRO, EDITORA FROM LIVROS;
+
+-- 3. Trazer o nome do livro e a UF dos livros publicados por autores do sexo masculino.
+SELECT LIVRO, UF FROM LIVROS WHERE SEXO = 'M';
+
+-- 4. Trazer o nome do livro e o número de páginas dos livros publicados por autores do sexo feminino.
+SELECT LIVRO, PAGINAS FROM LIVROS WHERE SEXO = 'F';
+
+-- 5. Trazer os valores dos livros das editoras de São Paulo.
+SELECT VALOR FROM LIVROS WHERE UF = 'SP';
+
+-- 6. Trazer os dados dos autores do sexo masculino que tiveram livros publicados por São Paulo ou Rio de Janeiro (Questão Desafio).
+SELECT AUTOR, SEXO, UF FROM LIVROS WHERE SEXO = 'M' AND (UF = 'SP' OR UF = 'RJ');
 
