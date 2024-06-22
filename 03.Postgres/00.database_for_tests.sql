@@ -1,6 +1,45 @@
-create database exercise_2;
+create table departamentos (
+    departamento varchar(100),
+    divisao varchar(100),
+    primary key (departamento)
+  );
 
-use exercise_2;
+insert into departamentos values ('Automotivo','Auto & Hardware');
+insert into departamentos values ('Bebês','Casa e Afins');
+insert into departamentos values ('Beleza','Casa e Afins');
+insert into departamentos values ('Roupas','Casa e Afins');
+insert into departamentos values ('Computadores','Equipamentos Eletrônicos');
+insert into departamentos values ('Eletronicos','Equipamentos Eletrônicos');
+insert into departamentos values ('Games','Casa e Afins');
+insert into departamentos values ('Jardim','Outdoors & Jardim');
+insert into departamentos values ('Alimentícios','Casa e Afins');
+insert into departamentos values ('Saúde','Casa e Afins');
+insert into departamentos values ('Lar','Casa e Afins');
+insert into departamentos values ('Industrial','Auto & Hardware');
+insert into departamentos values ('Joalheria','Fashion');
+insert into departamentos values ('Crianças','Casa e Afins');
+insert into departamentos values ('Filmes','Entretenimento');
+insert into departamentos values ('Música','Entretenimento');
+insert into departamentos values ('Outdoors','Outdoors & Jardim');
+insert into departamentos values ('Calçados','Casa e Afins');
+insert into departamentos values ('Esporte','Games & Esporte');
+insert into departamentos values ('Ferramentas','Auto & Hardware');
+insert into departamentos values ('Brinquedos','Games & Esporte');
+
+create table localizacao (
+   idRegiao int,
+   localizacao varchar(20),
+   pais varchar(20),
+   primary key (idRegiao)
+  );
+
+insert into localizacao values (1, 'Nordeste', 'Brasil');
+insert into localizacao values (2, 'Sudeste', 'Brasil');
+insert into localizacao values (3, 'Sul', 'Brasil');
+insert into localizacao values (4, 'Norte', 'Brasil');
+insert into localizacao values (5, 'British Columbia', 'Canada');
+insert into localizacao values (6, 'Quebec', 'Canada');
+insert into localizacao values (7, 'Nova Scotia', 'Canada');
 
 create table funcionarios
   (
@@ -9,10 +48,11 @@ create table funcionarios
       email varchar(200),
       sexo varchar(10),
       departamento varchar(100),
-      admissao varchar(10),
+      admissao date,
       salario integer,
       cargo varchar(100),
-      idRegiao int
+      idRegiao int,
+      primary key (idFuncionario)
   );
 
 insert into funcionarios values (1,'Kelley','rkelley0@soundcloud.com','Feminino','Computadores','10/2/2009',67470,'Structural Engineer',2);
@@ -24,7 +64,7 @@ insert into funcionarios values (6,'Phillips','bphillips5@time.com','Masculino',
 insert into funcionarios values (7,'Williamson','rwilliamson6@ted.com','Masculino','Computadores','5/14/2006',65889,'Dental Hygienist',6);
 insert into funcionarios values (8,'Harris','aharris7@ucoz.com','Feminino','Brinquedos','8/12/2003',84427,'Safety Technician I',4);
 insert into funcionarios values (9,'James','rjames8@prnewswire.com','Masculino','Joalheria','9/7/2005',108657,'Sales Associate',2);
-
+insert into funcionarios values (10,'Sanchez','rsanchez9@cloudflare.com','Masculino','Filmes','3/13/2013',108093,'Sales Representative',1);
 insert into funcionarios values (11,'Jacobs','jjacobsa@sbwire.com','Feminino','Joalheria','11/27/2003',121966,'Community Outreach Specialist',7);
 insert into funcionarios values (12,'Black','mblackb@edublogs.org','Masculino','Roupas','2/4/2003',44179,'Data Coordiator',7);
 insert into funcionarios values (13,'Schmidt','sschmidtc@state.gov','Masculino','Bebês','10/13/2002',85227,'Compensation Analyst',3);
@@ -34,7 +74,7 @@ insert into funcionarios values (16,'Medina','smedinaf@amazonaws.com','Feminino'
 insert into funcionarios values (17,'Morgan','dmorgang@123-reg.co.uk','Feminino','Crianças','5/4/2011',148952,'Programmer IV',6);
 insert into funcionarios values (18,'Nguyen','jnguyenh@google.com','Masculino','Lar','11/3/2014',93804,'Geologist II',5);
 insert into funcionarios values (19,'Day','rdayi@chronoengine.com','Masculino','Eletronicos','9/22/2004',109890,'VP Sales',3);
-
+insert into funcionarios values (20,'Carr','dcarrj@ocn.ne.jp','Feminino','Filmes','11/22/2007',115274,'VP Quality Control',5);
 insert into funcionarios values (21,'Bryant','sbryantk@wunderground.com','Feminino','Industrial','8/12/2005',78052,'Software Consultant',3);
 insert into funcionarios values (22,'Alexander','kalexanderl@marketwatch.com','Masculino','Automotivo','12/26/2011',144724,'Marketing Assistant',2);
 insert into funcionarios values (23,'Chapman','jchapmanm@archive.org','Feminino','Joalheria','4/12/2001',126103,'Senior Developer',4);
@@ -47,7 +87,8 @@ insert into funcionarios values (29,'Price','cprices@Brasil.gov','Feminino','Rou
 insert into funcionarios values (30,'Weaver','dweavert@shinystat.com','Masculino','Beleza','2/17/2012',83144,'Account Representative III',2);
 insert into funcionarios values (31,'Willis','hwillisu@army.mil','Feminino','Ferramentas','10/21/2012',113507,'Accountant I',7);
 insert into funcionarios values (32,'Torres','ltorresv@amazon.de','Masculino','Games','4/7/2014',78245,'Nuclear Power Engineer',6);
-
+insert into funcionarios values (33,'Greene','wgreenew@blogspot.com','Masculino','Filmes','3/21/2000',87057,'Assistant Manager',1);
+insert into funcionarios values (34,'Reed','areedx@cisco.com','Masculino','Filmes','11/28/2002',120579,'Assistant Media Planner',6);
 insert into funcionarios values (35,'Smith','bsmithy@statcounter.com','Feminino','Books','6/13/2013',94884,'Librarian',7);
 insert into funcionarios values (36,'Bradley','nbradleyz@goodreads.com','Masculino','Outdoors','12/28/2008',107222,'Payment Adjustment Coordinator',3);
 insert into funcionarios values (37,'Cruz','rcruz10@blinklist.com','Feminino','Lar','5/20/2000',61739,'Quality Engineer',1);
@@ -57,7 +98,7 @@ insert into funcionarios values (40,'Hawkins','phawkins13@twitpic.com','Feminino
 insert into funcionarios values (41,'Allen','jallen14@ustream.tv','Feminino','Bebês','5/10/2001',89680,'Web Developer III',6);
 insert into funcionarios values (42,'Watkins','mwatkins15@wiley.com','Masculino','Computadores','4/1/2008',125668,'Executive Secretary',7);
 insert into funcionarios values (43,'Ferguson','mferguson16@qq.com','Masculino','Esporte','5/29/2009',82960,'Account Representative III',6);
-
+insert into funcionarios values (44,'Simmons','asimmons17@csmonitor.com','Masculino','Filmes','12/21/2013',113857,'Developer III',2);
 insert into funcionarios values (45,'Nguyen','mnguyen18@biblegateway.com','Masculino','Automotivo','1/24/2002',108378,'Electrical Engineer',7);
 insert into funcionarios values (46,'Lawrence','jlawrence19@linkedin.com','Masculino','Outdoors','12/11/2011',133424,'Junior Executive',7);
 insert into funcionarios values (47,'Oliver','joliver1a@cnbc.com','Feminino','Roupas','8/30/2013',42797,'Software Engineer III',5);
@@ -108,7 +149,7 @@ insert into funcionarios values (91,'Wallace','swallace2i@state.tx.us','Masculin
 insert into funcionarios values (92,'Ortiz','aortiz2j@jigsy.com','Feminino','Automotivo','6/22/2010',113231,'Senior Editor',7);
 insert into funcionarios values (93,'Knight','nknight2k@cafepress.com','Feminino','Eletronicos','4/3/2014',125847,'Chemical Engineer',5);
 insert into funcionarios values (94,'Hunt','thunt2l@twitpic.com','Feminino','Música','5/31/2000',140430,'Senior Cost Accountant',2);
-
+insert into funcionarios values (95,'Franklin','sfranklin2m@wordpress.com','Masculino','Filmes','11/6/2013',117105,'VP Quality Control',5);
 insert into funcionarios values (96,'Mason','wmason2n@xrea.com','Masculino','Beleza','2/21/2004',96673,'Accounting Assistant I',1);
 insert into funcionarios values (97,'Williams','wwilliams2o@berkeley.edu','Feminino','Games','3/14/2013',79267,'VP Quality Control',7);
 insert into funcionarios values (98,'Freeman','lfreeman2p@tiny.cc','Feminino','Crianças','10/11/2007',109154,'Accountant I',4);
@@ -125,12 +166,12 @@ insert into funcionarios values (108,'Perkins','jperkins2z@prlog.org','Masculino
 insert into funcionarios values (109,'Freeman','bfreeman30@fda.gov','Feminino','Roupas','10/14/2007',147868,'General Manager',6);
 insert into funcionarios values (110,'Howell','whowell31@free.fr','Masculino','Books','4/15/2011',67255,'Geologist III',4);
 insert into funcionarios values (111,'Austin','naustin32@discuz.net','Feminino','Computadores','6/13/2012',47494,'Help Desk Operator',6);
-
+insert into funcionarios values (112,'Morris','amorris33@irs.gov','Feminino','Filmes','7/19/2013',127645,'Legal Assistant',1);
 insert into funcionarios values (113,'Moore','kmoore34@shareasale.com','Masculino','Bebês','3/1/2000',54413,'Operator',5);
 insert into funcionarios values (114,'Sims','msims35@i2i.jp','Masculino','Alimentícios','12/6/2012',136790,'Nuclear Power Engineer',2);
 insert into funcionarios values (115,'Nguyen','rnguyen36@bandcamp.com','Feminino','Roupas','6/30/2007',58420,'Graphic Designer',1);
 insert into funcionarios values (116,'Wells','awells37@theatlantic.com','Masculino','Industrial','1/17/2002',73813,'Occupational Therapist',3);
-
+insert into funcionarios values (117,'Martin','jmartin38@chron.com','Masculino','Filmes','10/2/2012',49644,'Senior Developer',4);
 insert into funcionarios values (118,'Fox','pfox39@discovery.com','Masculino','Automotivo','9/3/2009',87134,'Assistant Manager',3);
 insert into funcionarios values (119,'Washington','wwashington3a@dot.gov','Feminino','Roupas','10/6/2008',148408,'Speech Pathologist',3);
 insert into funcionarios values (120,'Evans','wevans3b@scientificamerican.com','Feminino','Brinquedos','1/23/2008',77335,'Chemical Engineer',4);
@@ -138,7 +179,7 @@ insert into funcionarios values (121,'Elliott','belliott3c@jiathis.com','Feminin
 insert into funcionarios values (122,'Wagner','jwagner3d@fotki.com','Masculino','Bebês','2/26/2001',77530,'Librarian',1);
 insert into funcionarios values (123,'Griffin','agriffin3e@mtv.com','Feminino','Jardim','4/26/2002',101875,'Business Systems Development Analyst',4);
 insert into funcionarios values (124,'Chavez','mchavez3f@sohu.com','Feminino','Alimentícios','12/7/2005',144028,'Executive Secretary',6);
-
+insert into funcionarios values (125,'Dean','ldean3g@blogspot.com','Feminino','Filmes','5/5/2012',140708,'Nurse',1);
 insert into funcionarios values (126,'Burton','bburton3h@360.cn','Masculino','Calçados','7/11/2013',79172,'Associate Professor',7);
 insert into funcionarios values (127,'Harper','sharper3i@slideshare.net','Feminino','Outdoors','5/18/2000',144639,'VP Quality Control',7);
 insert into funcionarios values (128,'Gibson','tgibson3j@ucoz.com','Masculino','Computadores','3/24/2003',109449,'Engineer II',7);
@@ -159,9 +200,9 @@ insert into funcionarios values (142,'Burton','gburton3x@umich.edu','Masculino',
 insert into funcionarios values (143,'Gutierrez','jgutierrez3y@tuttocitta.it','Masculino','Ferramentas','5/6/2014',58805,'Database Administrator I',1);
 insert into funcionarios values (144,'Barnes','lbarnes3z@indiegogo.com','Feminino','Bebês','12/8/2008',112837,'Clinical Specialist',5);
 insert into funcionarios values (145,'Day','lday40@upenn.edu','Feminino','Bebês','4/14/2013',125914,'Junior Executive',6);
-
+insert into funcionarios values (146,'Thompson','athompson41@booking.com','Masculino','Filmes','2/4/2009',133281,'Account Executive',6);
 insert into funcionarios values (147,'Hernandez','ahernandez42@pagesperso-orange.fr','Feminino','Música','10/6/2012',96169,'Civil Engineer',1);
-
+insert into funcionarios values (148,'Sanders','lsanders43@linkedin.com','Masculino','Filmes','5/9/2013',146970,'funcionarios Accountant III',3);
 insert into funcionarios values (149,'Meyer','jmeyer44@facebook.com','Feminino','Brinquedos','5/3/2008',76352,'Human Resources Assistant IV',4);
 insert into funcionarios values (150,'Diaz','pdiaz45@who.int','Masculino','Saúde','10/15/2006',128748,'Web Developer III',1);
 insert into funcionarios values (151,'Larson','blarson46@newsvine.com','Masculino','Books','8/9/2011',50066,'Operator',1);
@@ -182,9 +223,9 @@ insert into funcionarios values (165,'Lawson','jlawson4k@prnewswire.com','Mascul
 insert into funcionarios values (166,'Meyer','kmeyer4l@bloglovin.com','Masculino','Industrial','3/5/2006',87097,'Safety Technician IV',7);
 insert into funcionarios values (167,'Lopez','rlopez4m@foxnews.com','Masculino','Outdoors','1/25/2013',131961,'Legal Assistant',4);
 insert into funcionarios values (168,'Burns','pburns4n@networksolutions.com','Feminino','Joalheria','6/9/2014',88093,'Editor',7);
-
+insert into funcionarios values (169,'Sanders','rsanders4o@salon.com','Masculino','Filmes','12/24/2010',41898,'Tax Accountant',6);
 insert into funcionarios values (170,'Martinez','cmartinez4p@facebook.com','Masculino','Eletronicos','6/28/2004',52808,'Human Resources Assistant I',2);
-
+insert into funcionarios values (171,'Harris','mharris4q@squarespace.com','Feminino','Filmes','9/27/2004',110912,'Geologist I',5);
 insert into funcionarios values (172,'Fields','rfields4r@amazon.co.uk','Masculino','Books','9/5/2009',101520,'Project Manager',1);
 insert into funcionarios values (173,'Fox','ffox4s@geocities.com','Feminino','Books','11/21/2005',55633,'Systems Administrator IV',1);
 insert into funcionarios values (174,'Reynolds','dreynolds4t@biglobe.ne.jp','Feminino','Books','10/8/2010',91561,'VP Product Management',7);
@@ -213,14 +254,14 @@ insert into funcionarios values (196,'Jacobs','rjacobs5f@oracle.com','Masculino'
 insert into funcionarios values (197,'Hayes','jhayes5g@jiathis.com','Feminino','Beleza','1/3/2011',130097,'Office Assistant IV',5);
 insert into funcionarios values (198,'Sanders','esanders5h@ihg.com','Feminino','Industrial','1/24/2000',117905,'Dental Hygienist',4);
 insert into funcionarios values (199,'Reed','sreed5i@bloglovin.com','Feminino','Calçados','11/12/2010',142483,'Social Worker',3);
-
+insert into funcionarios values (200,'George','mgeorge5j@cdc.gov','Masculino','Filmes','9/20/2004',89633,'Software Consultant',4);
 insert into funcionarios values (201,'Andrews','jandrews5k@free.fr','Masculino','Lar','3/18/2009',48684,'Nurse Practicioner',6);
 insert into funcionarios values (202,'Morris','lmorris5l@patch.com','Feminino','Automotivo','1/23/2004',91932,'Analyst Programmer',1);
 insert into funcionarios values (203,'Moreno','jmoreno5m@xing.com','Feminino','Alimentícios','10/7/2005',112004,'Internal Auditor',7);
 insert into funcionarios values (204,'Powell','cpowell5n@cocolog-nifty.com','Feminino','Beleza','9/25/2000',116013,'Tax Accountant',4);
 insert into funcionarios values (205,'Graham','jgraham5o@printfriendly.com','Feminino','Games','9/10/2008',109058,'Chemical Engineer',7);
 insert into funcionarios values (206,'Riley','hriley5p@dailymotion.com','Masculino','Brinquedos','5/6/2012',61992,'Sales Representative',4);
-
+insert into funcionarios values (207,'Harris','mharris5q@utexas.edu','Feminino','Filmes','10/2/2008',129527,'Statistician II',2);
 insert into funcionarios values (208,'Gilbert','rgilbert5r@domainmarket.com','Feminino','Alimentícios','12/15/2001',67746,'Director of Sales',2);
 insert into funcionarios values (209,'Peterson','jpeterson5s@t-online.de','Masculino','Books','3/14/2010',104530,'VP Marketing',2);
 insert into funcionarios values (210,'Foster','jfoster5t@icq.com','Feminino','Música','1/17/2008',42759,'Social Worker',4);
@@ -386,13 +427,13 @@ insert into funcionarios values (369,'Lawrence','llawrencea8@mozilla.com','Femin
 insert into funcionarios values (370,'Austin','eaustina9@answers.com','Masculino','Lar','1/9/2002',110627,'Teacher',7);
 insert into funcionarios values (371,'Sims','bsimsaa@privacy.gov.au','Masculino','Esporte','6/4/2000',127223,'Operator',5);
 insert into funcionarios values (372,'Harper','rharperab@china.com.cn','Feminino','Crianças','8/31/2001',96163,'Safety Technician IV',3);
-
+insert into funcionarios values (373,'Sims','jsimsac@a8.net','Masculino','Joalheria','4/24/2012',86524,'Developer IV',5);
 insert into funcionarios values (374,'Mcdonald','jmcdonaldad@sbwire.com','Feminino','Bebês','9/19/2005',141464,'Programmer IV',4);
 insert into funcionarios values (375,'Hudson','mhudsonae@ihg.com','Feminino','Industrial','8/27/2014',88029,'Help Desk Operator',4);
 insert into funcionarios values (376,'Harper','charperaf@google.pl','Masculino','Lar','3/21/2007',47281,'VP Quality Control',6);
 insert into funcionarios values (377,'Alexander','valexanderag@amazon.co.uk','Feminino','Eletronicos','1/15/2002',93245,'funcionarios Scientist',1);
 insert into funcionarios values (378,'Nichols','bnicholsah@networkadvertising.org','Masculino','Automotivo','7/30/2012',110589,'Cost Accountant',7);
-
+insert into funcionarios values (379,'Hicks','ghicksai@weibo.com','Masculino','Joalheria','4/3/2003',63735,'VP Accounting',6);
 insert into funcionarios values (380,'Turner','bturneraj@samsung.com','Feminino','Industrial','11/23/2013',91182,'Compensation Analyst',5);
 insert into funcionarios values (381,'Welch','dwelchak@printfriendly.com','Masculino','Música','9/9/2012',133007,'Software Test Engineer I',7);
 insert into funcionarios values (382,'Payne','jpayneal@comsenz.com','Feminino','Lar','8/10/2012',92879,'Nurse',2);
@@ -425,7 +466,7 @@ insert into funcionarios values (408,'Moore','jmoorebb@liveinternet.ru','Feminin
 insert into funcionarios values (409,'Williams','swilliamsbc@bing.com','Feminino','Lar','4/22/2007',58235,'Analog Circuit Design manager',6);
 insert into funcionarios values (410,'Harris','lharrisbd@ow.ly','Feminino','Ferramentas','1/7/2012',148940,'Senior Financial Analyst',6);
 insert into funcionarios values (411,'Hayes','chayesbe@usnews.com','Masculino','Crianças','4/9/2003',110615,'Paralegal',6);
-
+insert into funcionarios values (412,'Vasquez','jvasquezbf@dailymail.co.uk','Masculino','Joalheria','1/14/2012',94596,'Web Developer I',1);
 insert into funcionarios values (413,'Brooks','lbrooksbg@storify.com','Feminino','Saúde','9/19/2008',94502,'Executive Secretary',1);
 insert into funcionarios values (414,'Peterson','epetersonbh@reverbnation.com','Masculino','Games','8/10/2011',72505,'Registered Nurse',3);
 insert into funcionarios values (415,'Holmes','dholmesbi@jugem.jp','Masculino','Brinquedos','6/18/2001',147150,'Analog Circuit Design manager',6);
@@ -481,7 +522,7 @@ insert into funcionarios values (464,'Brooks','dbrookscv@biblegateway.com','Femi
 insert into funcionarios values (465,'White','dwhitecw@exblog.jp','Masculino','Computadores','10/17/2007',122540,'Administrative Officer',2);
 insert into funcionarios values (466,'Carroll','fcarrollcx@ucoz.ru','Feminino','Games','5/29/2008',128562,'Senior Developer',7);
 insert into funcionarios values (467,'Ford','efordcy@elpais.com','Feminino','Esporte','3/15/2002',60674,'Software Engineer I',3);
-
+insert into funcionarios values (468,'Ross','grosscz@blogtalkradio.com','Masculino','Joalheria','4/16/2005',93609,'Environmental Specialist',6);
 insert into funcionarios values (469,'Hicks','rhicksd0@histats.com','Feminino','Crianças','8/8/2010',97913,'Occupational Therapist',3);
 insert into funcionarios values (470,'Rice','triced1@examiner.com','Feminino','Alimentícios','8/13/2005',108380,'Data Coordiator',5);
 insert into funcionarios values (471,'Lewis','plewisd2@businessinsider.com','Feminino','Bebês','11/16/2007',50448,'Database Administrator III',4);
@@ -494,7 +535,7 @@ insert into funcionarios values (477,'Gonzalez','lgonzalezd8@fastcompany.com','M
 insert into funcionarios values (478,'Mason','jmasond9@networkadvertising.org','Masculino','Esporte','4/16/2003',147166,'Systems Administrator I',6);
 insert into funcionarios values (479,'Nelson','lnelsonda@example.com','Masculino','Alimentícios','9/8/2009',56465,'Programmer IV',6);
 insert into funcionarios values (480,'Miller','amillerdb@reddit.com','Masculino','Eletronicos','2/7/2001',78158,'Programmer Analyst I',5);
-
+insert into funcionarios values (481,'Moore','kmooredc@simplemachines.org','Masculino','Joalheria','6/5/2013',62815,'Compensation Analyst',4);
 insert into funcionarios values (482,'Harris','rharrisdd@paypal.com','Masculino','Brinquedos','6/10/2007',126468,'Budget/Accounting Analyst III',4);
 insert into funcionarios values (483,'Brown','mbrownde@bizjournals.com','Feminino','Beleza','5/10/2012',79419,'Senior Developer',3);
 insert into funcionarios values (484,'Little','glittledf@xrea.com','Masculino','Computadores','3/23/2009',83093,'Registered Nurse',1);
@@ -535,7 +576,7 @@ insert into funcionarios values (518,'Peters','cpetersed@goo.ne.jp','Feminino','
 insert into funcionarios values (519,'Hamilton','chamiltonee@google.es','Masculino','Eletronicos','8/26/2003',141340,'Budget/Accounting Analyst III',4);
 insert into funcionarios values (520,'Owens','sowensef@ted.com','Masculino','Industrial','6/2/2006',54672,'Structural Engineer',4);
 insert into funcionarios values (521,'Williamson','dwilliamsoneg@creativecommons.org','Masculino','Roupas','10/6/2003',118602,'Director of Sales',5);
-
+insert into funcionarios values (522,'Flores','lfloreseh@tinyurl.com','Masculino','Joalheria','2/4/2000',97745,'Electrical Engineer',7);
 insert into funcionarios values (523,'Johnston','ajohnstonei@php.net','Feminino','Saúde','6/10/2012',143855,'Internal Auditor',5);
 insert into funcionarios values (524,'Edwards','pedwardsej@businessinsider.com','Feminino','Saúde','6/15/2009',43431,'Physical Therapy Assistant',6);
 insert into funcionarios values (525,'Payne','tpayneek@newyorker.com','Feminino','Ferramentas','3/1/2002',94016,'VP Quality Control',2);
@@ -595,7 +636,7 @@ insert into funcionarios values (578,'Lynch','hlynchg1@washingtonpost.com','Masc
 insert into funcionarios values (579,'Barnes','jbarnesg2@hubpages.com','Feminino','Jardim','12/23/2000',100763,'Database Administrator I',7);
 insert into funcionarios values (580,'Weaver','kweaverg3@wikia.com','Masculino','Computadores','5/23/2012',54231,'Accounting Assistant II',3);
 insert into funcionarios values (581,'Cunningham','pcunninghamg4@example.com','Feminino','Esporte','3/25/2010',92334,'GIS Technical Architect',3);
-
+insert into funcionarios values (582,'Ramirez','hramirezg5@merriam-webster.com','Masculino','Joalheria','3/16/2005',58111,'Research Associate',5);
 insert into funcionarios values (583,'Hunter','ehunterg6@ucsd.edu','Feminino','Calçados','12/12/2000',112048,'Software Engineer II',5);
 insert into funcionarios values (584,'Cook','ccookg7@blog.com','Feminino','Música','5/13/2008',109404,'Chief Design Engineer',6);
 insert into funcionarios values (585,'Lopez','nlopezg8@fema.gov','Masculino','Jardim','7/19/2007',138776,'Senior Editor',2);
@@ -641,7 +682,8 @@ insert into funcionarios values (624,'Garza','mgarzahb@elegantthemes.com','Mascu
 insert into funcionarios values (625,'Andrews','handrewshc@salon.com','Feminino','Outdoors','12/2/2007',147003,'Chemical Engineer',1);
 insert into funcionarios values (626,'Ruiz','sruizhd@slashdot.org','Feminino','Jardim','1/12/2009',83706,'Assistant Media Planner',2);
 insert into funcionarios values (627,'Watkins','swatkinshe@wunderground.com','Feminino','Alimentícios','1/21/2000',80245,'VP Product Management',6);
-
+insert into funcionarios values (628,'Diaz','rdiazhf@nih.gov','Masculino','Joalheria','8/11/2008',65110,'Compensation Analyst',5);
+insert into funcionarios values (629,'Watkins','mwatkinshg@bbb.org','Masculino','Joalheria','7/29/2011',128617,'Senior Editor',4);
 insert into funcionarios values (630,'Pierce','spiercehh@google.nl','Masculino','Outdoors','2/9/2002',96107,'Actuary',5);
 insert into funcionarios values (631,'Perez','wperezhi@yahoo.co.jp','Feminino','Ferramentas','6/14/2014',44788,'Project Manager',2);
 insert into funcionarios values (632,'Lopez','clopezhj@mediafire.com','Feminino','Jardim','1/1/2004',86207,'Accountant II',4);
@@ -655,7 +697,7 @@ insert into funcionarios values (639,'Porter','eporterhq@amazon.com','Masculino'
 insert into funcionarios values (640,'Washington','hwashingtonhr@bbc.co.uk','Masculino','Joalheria','2/22/2003',44096,'Geologist IV',4);
 insert into funcionarios values (641,'Hayes','rhayeshs@loc.gov','Feminino','Saúde','4/7/2010',69454,'Web Designer II',1);
 insert into funcionarios values (642,'Warren','awarrenht@addthis.com','Feminino','Filmes','5/15/2009',126201,'Electrical Engineer',2);
-
+insert into funcionarios values (643,'Johnston','cjohnstonhu@psu.edu','Masculino','Joalheria','3/21/2014',123820,'Computer Systems Analyst IV',4);
 insert into funcionarios values (644,'Carroll','jcarrollhv@over-blog.com','Masculino','Alimentícios','4/6/2002',52956,'Compensation Analyst',7);
 insert into funcionarios values (645,'Webb','twebbhw@google.com.br','Masculino','Ferramentas','6/1/2007',143595,'Geological Engineer',6);
 insert into funcionarios values (646,'Harvey','lharveyhx@plala.or.jp','Masculino','Beleza','8/14/2014',124707,'Registered Nurse',6);
